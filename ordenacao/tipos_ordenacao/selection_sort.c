@@ -35,7 +35,7 @@ void swap(int *v, int i, int n)
 
 void selectionSort(int *v, int size)
 {
-    int iteracoes = 0;
+    int comparacoes = 0;
 
     for (int i = 0; i < size - 1; i++) // percore até size - 1
     {
@@ -46,18 +46,12 @@ void selectionSort(int *v, int size)
             if (v[min] > v[j])
                 min = j; // min virá o índice j
 
-            iteracoes++;
-        }
-
-        if (min == i)
-        {
-            printf("Vetor ordenado com %d iterações\n", iteracoes);
-            return;
+            comparacoes++;
         }
 
         swap(v, i, min); // quando percorreu todo o vetor não ordenadom troca a o i com min
-        iteracoes++;
+        comparacoes++;
     }
 
-    printf("Vetor ordenado com %d iterações\n", iteracoes);
+    printf("Vetor ordenado com %d comparações\n", comparacoes);
 }

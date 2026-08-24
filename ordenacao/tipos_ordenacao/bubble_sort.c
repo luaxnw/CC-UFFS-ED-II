@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-int swap(int *v, int i, int n);
+void swap(int *v, int i, int n);
 void bubbleSort(int v[], int size);
 
 int main(void)
@@ -23,22 +23,18 @@ int main(void)
     return 0;
 }
 
-
-int swap(int *v, int i, int n)
+void swap(int *v, int i, int n)
 {
     int aux = v[i];
 
     v[i] = v[n];
     v[n] = aux;
-
-    return 1;
 }
-
 
 void bubbleSort(int v[], int size)
 {
     int flag = 0;
-    int iteracaoes = 0;
+    int comparacoes = 0;
     for (int i = size - 1; i > 0; i--)
     {
         flag = 0;
@@ -46,17 +42,20 @@ void bubbleSort(int v[], int size)
         for (int j = 0; j < i; j++) // o fato de i ser size - 1 previne que o último valor seja comparado com algo
         {
             if (v[j] > v[j + 1])
-                flag = swap(v, j, j + 1);
-            iteracaoes++;
+            {
+                swap(v, j, j + 1);
+                flag = 1;
+            }
+            comparacoes++;
         }
         if (flag == 0) // swap retorna 1. quando sai do segundo looping e o valor é 0, encerra o programa
         {
-            printf("VETOR organizado com %d iterações\n", iteracaoes);
+            printf("VETOR organizado com %d comparações\n", comparacoes);
             return;
         }
-        iteracaoes++;
+        comparacoes++;
     }
 
-    printf("vetor organizado com %d iterações\n", iteracaoes);
+    printf("vetor organizado com %d comparações\n", comparacoes);
     return;
 }
