@@ -1,4 +1,3 @@
-
 void mergeSort(int *vet, int start, int end);
 void merge(int *vet, int p, int q, int r);
 
