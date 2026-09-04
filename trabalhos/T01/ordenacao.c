@@ -6,7 +6,7 @@ void merge(int *vet, int p, int q, int r)
     /*
     p -> índice do primeiro elemento da primeira metade
     q -> índice do final da primeira metade e onde ocorre a divisão
-    q -> índice final da segunda metade
+    r -> índice final da segunda metade
     */
     int i = 0, j = 0, k = 0;
 
